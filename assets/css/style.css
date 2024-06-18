@@ -53,6 +53,16 @@ Primary use:    pxdraft
 }
 
 @media (min-width: 992px) {
+  .navbar-brand img:first-child {
+    display: block;
+    /* Show the first image */
+  }
+
+  .navbar-brand img:last-child {
+    display: none;
+    /* Hide the second image */
+  }
+
   .main-header .navbar-nav>li+li {
     margin-left: 25px;
   }
@@ -97,6 +107,16 @@ Primary use:    pxdraft
 }
 
 @media (max-width: 991px) {
+  .navbar-brand img:first-child {
+    display: none;
+    /* Hide the first image */
+  }
+
+  .navbar-brand img:last-child {
+    display: block;
+    /* Show the second image */
+  }
+
   .white-theme .main-header {
     background: rgba(255, 255, 255, 0.8);
   }
@@ -175,6 +195,7 @@ Primary use:    pxdraft
     background-image: linear-gradient(to left, #12c2e9, #c471ed, #f64f59);
   }
 }
+
 
 .footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -625,13 +646,25 @@ main {
   }
 }
 
-.home-section .home-image svg {
+
+.home-section .home-image image {
   width: 100%;
 }
 
-.home-section .home-image svg image {
-  width: 100%;
+/* Default styles */
+.hd-hide {
+  display: none;
+  /* Ensure the element is displayed by default */
 }
+
+/* Hide the element for HD screens */
+@media screen and (min-width: 1024px) {
+  .hd-hide {
+    display: block;
+  }
+}
+
+
 
 .home-section .home-intro h6 {
   font-weight: 600;
@@ -689,11 +722,11 @@ main {
 }
 
 .home-section .home-intro .hs-exp .exp-box {
-  padding-right: 35px;
+  padding-right: 3%;
 }
 
 .home-section .home-intro .hs-exp .exp-box+.exp-box {
-  padding-left: 35px;
+  padding-left: 3%;
   border-left: 1px solid rgba(255, 255, 255, 0.09);
 }
 
@@ -712,14 +745,24 @@ main {
 
 .home-section .home-intro .hs-exp span {
   margin: 0;
-  font-size: 14px;
+  font-size: 75%;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  text-wrap: wrap;
+}
+
+/* Styles for full HD screens */
+@media (min-width: 1280px) and (min-height: 720px) {
+  .home-section .home-intro .hs-exp span {
+    font-size: 18px;
+  }
 }
 
 .home-section .home-intro .btn-bar {
   padding-top: 45px;
 }
+
+
 
 /* About Section
 -------------------------------*/
