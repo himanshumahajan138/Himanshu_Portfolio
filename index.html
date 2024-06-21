@@ -29,12 +29,12 @@
     <!-- Header -->
     <header class="main-header">
         <nav class="navbar header-nav header-white header-transparent navbar-expand-lg one-page-nav">
-            
+
             <div class="container">
                 <!-- Brand -->
-                <a class="navbar-brand" href="" target="_self" >
+                <a class="navbar-brand" href="" target="_self">
                     <img src="assets/img/logo.png" title="" alt="" height="60%" width="60%">
-                    <img src="assets/img/logo1.png" title="" alt="" >
+                    <img src="assets/img/logo1.png" title="" alt="">
                 </a>
                 <!-- <a class="navbar-brand" href="" target="_self" >
                     <img src="assets/img/logo1.png" title="" alt="" >
@@ -73,8 +73,66 @@
                     <div class="col-lg-7 pe-lg-5">
                         <div class="home-intro">
                             <h6>INTRODUCTION</h6>
-                            <h2>I'm Himanshu, a <span class="text-theme">Computer Science Student</span></h2>
-                            <p align="justify">"Fuelled by a fascination for untangling complex problems, I am a
+                            <h2>I'm Himanshu, a<br><span class="text-theme" id="demo"> </span><span id="cursor" class="text-theme">|</span>
+                            </h2>
+                            <script>
+                                var i = 0;
+                                var texts = [' Computer Science Student', ' Machine Learning Enthusiast', ' Competitive Programmer'];
+                                var currentIndex = 0;
+                                var txt = texts[currentIndex];
+                                var speed = 75;
+                                var isReversing = false;
+                                var cursorVisible = true;
+
+                                function typeWriter() {
+                                    if (!isReversing) {
+                                        if (i < txt.length) {
+                                            document.getElementById("demo").innerHTML += txt.charAt(i);
+                                            i++;
+                                            setTimeout(typeWriter, speed);
+                                            toggleCursor();
+                                        } else {
+                                            setTimeout(resetAndStart, 750);
+                                        }
+                                    } else {
+                                        if (i > 1) { // Keep the initial space intact
+                                            document.getElementById("demo").innerHTML = txt.substring(0, i);
+                                            i--;
+                                            setTimeout(typeWriter, speed);
+                                            toggleCursor();
+                                        } else {
+                                            changeText();
+                                        }
+                                    }
+                                }
+
+                                function toggleCursor() {
+                                    cursorVisible = !cursorVisible;
+                                    var cursorElement = document.getElementById("cursor");
+                                    cursorElement.style.visibility = cursorVisible ? "visible" : "hidden";
+                                }
+
+                                function changeText() {
+                                    currentIndex = (currentIndex + 1) % texts.length;
+                                    txt = texts[currentIndex];
+                                    isReversing = false;
+                                    i = 1; // Start typing after the initial space
+                                    document.getElementById("demo").innerHTML = " "; // Ensure the space is there
+                                    typeWriter(); // Start typing the new text immediately
+                                }
+
+                                function resetAndStart() {
+                                    isReversing = true;
+                                    i = txt.length;
+                                    typeWriter();
+                                }
+
+                                // Start the typewriter effect
+                                typeWriter();
+                            </script>
+
+
+                            <p align="justify">"Fueled by a fascination for untangling complex problems, I am a
                                 final-year Computer Science and Engineering student at Sardar Beant Singh State
                                 University. My journey into the world of code began in high school, and since then, I've
                                 delved into the fascinating realms of Machine Learning, Data Science, and Software
@@ -410,8 +468,7 @@
                                 <a class="link-effect "
                                     href="https://github.com/himanshumahajan138/Flask-Website-Data-Analysis-With-Himanshu"
                                     style="color: #12c2e9;">View Project <i class="bi bi-arrow-up-right"></i></a><br>
-                                <a class="link-effect "
-                                    href="https://data-analysis-with-himanshu.onrender.com/"
+                                <a class="link-effect " href="https://data-analysis-with-himanshu.onrender.com/"
                                     style="color: #12c2e9;">View Website <i class="bi bi-arrow-up-right"></i></a>
                             </div>
                         </div>
@@ -447,7 +504,7 @@
                     <div class="work-box mb-4">
                         <div class="work-img">
                             <a class="gallery-link" href="assets/img/project4.png">
-                                <img src="assets/img/project4.png" >
+                                <img src="assets/img/project4.png">
                             </a>
                         </div>
                         <div class="work-info">
@@ -475,7 +532,7 @@
                     <div class="work-box mb-4">
                         <div class="work-img">
                             <a class="gallery-link" href="assets/img/project5.png">
-                                <img src="assets/img/project5.png" >
+                                <img src="assets/img/project5.png">
                             </a>
                         </div>
                         <div class="work-info">
@@ -500,7 +557,7 @@
                     <div class="work-box mb-4">
                         <div class="work-img">
                             <a class="gallery-link" href="assets/img/project6.png">
-                                <img src="assets/img/project6.png" >
+                                <img src="assets/img/project6.png">
                             </a>
                         </div>
                         <div class="work-info">

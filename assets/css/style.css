@@ -687,10 +687,23 @@ main {
   font-weight: 600;
   color: #fff;
   font-size: 60px;
+
 }
 
 .white-theme .home-section .home-intro h2 {
   color: #292929;
+}
+
+#cursor {
+  font-size: 78%;
+  visibility: visible;
+  animation: blink-animation 0.7s steps(1, start) infinite;
+}
+
+@keyframes blink-animation {
+  50% {
+      opacity: 0;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -706,7 +719,45 @@ main {
 }
 
 .home-section .home-intro h2 span {
-  display: block;
+  display: inline-block;
+}
+
+#demo{
+      font-size: 78%;
+
+}
+
+@media (max-width:1024px) {
+  #demo{
+    font-size: 68%;
+  }
+  #cursor{
+    font-size: 68%;
+  }
+
+}
+
+@media (max-width:424px) {
+  #demo{
+    font-size: 60%;
+  }
+  #cursor{
+    font-size: 60%;
+  }
+
+}
+
+@media (max-width:320px) {
+  .home-section .home-intro h2 {
+    font-size: 35px;
+  }
+  #demo{
+    font-size: 55%;
+  }
+  #cursor{
+    font-size: 55%;
+  }
+
 }
 
 .home-section .home-intro p {
